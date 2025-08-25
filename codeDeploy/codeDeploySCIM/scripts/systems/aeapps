@@ -31,7 +31,7 @@ API_PATH="/opt/AlertEnterprise/apps/alert-scim-server-1.0"
 JOB_PATH="/opt/AlertEnterprise/apps/alert-job-server-1.0"
 
 API_BIND_ADDRESS="0.0.0.0"
-API_PORT=9000
+API_PORT=9095
 
 host=$(hostname)
 ts=$(date +%Y%m%d_%H%M%S)
