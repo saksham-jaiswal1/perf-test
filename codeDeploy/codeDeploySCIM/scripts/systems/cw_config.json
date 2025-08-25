@@ -8,9 +8,9 @@
                     "files": {
                             "collect_list": [
                                     {
-                                            "file_path": "/opt/AlertEnterprise/apps/alert-api-server-1.0/logs/app.log",
+                                            "file_path": "/opt/AlertEnterprise/apps/alert-scim-server-1.0/logs/app.log",
                                             "log_group_class": "STANDARD",
-                                            "log_group_name": "{ENV}-{CLIENT}-api",
+                                            "log_group_name": "{ENV}-{CLIENT}-scim",
                                             "log_stream_name": "{instance_id}",
                                             "retention_in_days": 30
                                     }
