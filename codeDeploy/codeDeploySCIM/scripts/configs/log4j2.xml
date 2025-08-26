@@ -84,6 +84,22 @@
 			/> <Column name="LOGGER" pattern="%logger" /> <Column name="LOG_LEVEL" pattern="%level" 
 			/> <Column name="MESSAGE" pattern="%m" /> <Column name="EXCEPTION" pattern="%throwable 
 			" />> </JDBC> -->
+			
+			<!-- New Appender for Flyway Logs -->
+        <RollingFile name="FlywayRollingFileAppender"
+            fileName="logs/flyway.log"
+            filePattern="logs/flyway/$${date:yyyy-MM}/flyway-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d [%t] [%p] %c | uuid: %X{request_uuid} | %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="50 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="50" />
+        </RollingFile>
+		
 		<Console name="Console" target="SYSTEM_OUT">
 			<!--  <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />-->
 			<PatternLayout>
@@ -159,7 +175,11 @@
 <!-- 		</Logger> -->
 		
 
-
+<!-- Logger for Flyway -->
+        <Logger name="org.flywaydb" level="INFO" additivity="false">
+            <AppenderRef ref="FlywayRollingFileAppender" />
+        </Logger>
+		
 		<Root level="INFO" additivity="false">
 			<AppenderRef ref="DefaultTenantRollingFileAppender" level="INFO" />
 			<!-- <AppenderRef ref="JsonRollingFileAppender" level="error" /> -->
