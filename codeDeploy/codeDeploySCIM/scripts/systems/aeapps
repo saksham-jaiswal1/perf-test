@@ -40,8 +40,8 @@ API_OOM_COMMAND="aws s3 mv ${heap_file_api} s3://${S3_HEAPDUMP_BUCKET}/scim/ && 
 
 API_EXTRA_PARAMS=(
   -XX:MaxRAMPercentage=75.0
-  -Dcom.sun.management.jmxremote.port=9019
-  -Dcom.sun.management.jmxremote.rmi.port=9019
+  -Dcom.sun.management.jmxremote.port=9021
+  -Dcom.sun.management.jmxremote.rmi.port=9021
   -Dcom.sun.management.jmxremote.authenticate=false
   -Dcom.sun.management.jmxremote.ssl=false
   -javaagent:/opt/glowroot/glowroot.jar
@@ -60,8 +60,8 @@ JOB_OOM_COMMAND="aws s3 mv ${heap_file_job} s3://${S3_HEAPDUMP_BUCKET}/job/ && k
 
 JOB_EXTRA_PARAMS=(
   -XX:MaxRAMPercentage=75.0
-  -Dcom.sun.management.jmxremote.port=9019
-  -Dcom.sun.management.jmxremote.rmi.port=9019
+  -Dcom.sun.management.jmxremote.port=9021
+  -Dcom.sun.management.jmxremote.rmi.port=9021
   -Dcom.sun.management.jmxremote.authenticate=false
   -Dcom.sun.management.jmxremote.ssl=false
   -javaagent:/opt/glowroot/glowroot.jar
